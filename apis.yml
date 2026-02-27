@@ -1,0 +1,52 @@
+name: Bloomberg News
+description: Bloomberg News is a leading global provider of financial news, data, and analysis, delivering breaking news and insights on markets, economics, politics, and business.
+image: https://www.bloomberg.com/logos/bloomberg-logo.png
+url: https://www.bloomberg.com
+created: '2024'
+modified: '2024'
+specificationVersion: '0.16'
+apis:
+- name: Bloomberg Market Data API
+  description: Provides access to real-time and historical market data including stocks, bonds, commodities, and currencies
+  image: https://www.bloomberg.com/logos/api-icon.png
+  humanUrl: https://www.bloomberg.com/professional/support/api-library/
+  baseUrl: https://api.bloomberg.com/v1
+  tags:
+  - Financial Data
+  - Market Data
+  - Real-time
+  - Historical Data
+  properties:
+  - type: Documentation
+    url: https://www.bloomberg.com/professional/support/api-library/
+  - type: OpenAPI
+    url: https://api.bloomberg.com/openapi.json
+  - type: Authentication
+    url: https://www.bloomberg.com/professional/support/api-library/#authentication
+  contact:
+  - FN: Bloomberg API Support
+    email: apisupport@bloomberg.net
+- name: Bloomberg News API
+  description: Access to Bloomberg's breaking news, articles, and multimedia content covering global markets and business
+  humanUrl: https://www.bloomberg.com/professional/support/news-api/
+  baseUrl: https://api.bloomberg.com/news/v1
+  tags:
+  - News
+  - Articles
+  - Business News
+  - Financial News
+  properties:
+  - type: Documentation
+    url: https://www.bloomberg.com/professional/support/news-api/
+  - type: Pricing
+    url: https://www.bloomberg.com/professional/pricing/
+maintainers:
+- FN: Bloomberg L.P.
+  email: feedback@bloomberg.net
+  url: https://www.bloomberg.com
+tags:
+- Financial Services
+- News
+- Market Data
+- Business Intelligence
+- Analytics
