@@ -1,0 +1,447 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bloomberg": "https://bloomberg.com/ns/",
+    "schema": "https://schema.org/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "NewsArticle": {
+      "@id": "schema:NewsArticle",
+      "@context": {
+        "storyId": {
+          "@id": "bloomberg:storyId",
+          "@type": "xsd:string"
+        },
+        "headline": {
+          "@id": "schema:headline",
+          "@type": "xsd:string"
+        },
+        "subHeadline": {
+          "@id": "schema:alternativeHeadline",
+          "@type": "xsd:string"
+        },
+        "summary": {
+          "@id": "schema:abstract",
+          "@type": "xsd:string"
+        },
+        "body": {
+          "@id": "schema:articleBody",
+          "@type": "xsd:string"
+        },
+        "publishedAt": {
+          "@id": "schema:datePublished",
+          "@type": "xsd:dateTime"
+        },
+        "updatedAt": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "authors": {
+          "@id": "schema:author",
+          "@container": "@list"
+        },
+        "source": {
+          "@id": "schema:sourceOrganization",
+          "@type": "xsd:string"
+        },
+        "language": {
+          "@id": "schema:inLanguage",
+          "@type": "xsd:string"
+        },
+        "wordCount": {
+          "@id": "schema:wordCount",
+          "@type": "xsd:integer"
+        },
+        "articleType": {
+          "@id": "bloomberg:articleType",
+          "@type": "xsd:string"
+        },
+        "urgency": {
+          "@id": "bloomberg:urgency",
+          "@type": "xsd:string"
+        },
+        "topics": {
+          "@id": "schema:about",
+          "@container": "@set"
+        },
+        "securities": {
+          "@id": "bloomberg:mentionedSecurities",
+          "@container": "@set"
+        },
+        "regions": {
+          "@id": "schema:contentLocation",
+          "@container": "@set"
+        },
+        "sectors": {
+          "@id": "bloomberg:industrySector",
+          "@container": "@set"
+        },
+        "tags": {
+          "@id": "schema:keywords",
+          "@container": "@set"
+        },
+        "media": {
+          "@id": "schema:associatedMedia",
+          "@container": "@set"
+        },
+        "relatedStories": {
+          "@id": "schema:relatedLink",
+          "@container": "@set"
+        },
+        "copyright": {
+          "@id": "schema:copyrightNotice",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Author": {
+      "@id": "schema:Person",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "email": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "bio": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Topic": {
+      "@id": "schema:DefinedTerm",
+      "@context": {
+        "code": {
+          "@id": "schema:termCode",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "MarketData": {
+      "@id": "bloomberg:MarketData",
+      "@context": {
+        "security": {
+          "@id": "bloomberg:security",
+          "@type": "@id"
+        },
+        "timestamp": {
+          "@id": "dcterms:date",
+          "@type": "xsd:dateTime"
+        },
+        "pricing": {
+          "@id": "bloomberg:pricingData"
+        },
+        "volume": {
+          "@id": "bloomberg:volumeData"
+        },
+        "referenceData": {
+          "@id": "bloomberg:referenceData"
+        },
+        "historicalData": {
+          "@id": "bloomberg:historicalData",
+          "@container": "@list"
+        },
+        "intradayBar": {
+          "@id": "bloomberg:intradayBar",
+          "@container": "@list"
+        }
+      }
+    },
+
+    "SecurityIdentifier": {
+      "@id": "bloomberg:SecurityIdentifier",
+      "@context": {
+        "ticker": {
+          "@id": "bloomberg:ticker",
+          "@type": "xsd:string"
+        },
+        "figi": {
+          "@id": "bloomberg:figi",
+          "@type": "xsd:string"
+        },
+        "isin": {
+          "@id": "bloomberg:isin",
+          "@type": "xsd:string"
+        },
+        "cusip": {
+          "@id": "bloomberg:cusip",
+          "@type": "xsd:string"
+        },
+        "sedol": {
+          "@id": "bloomberg:sedol",
+          "@type": "xsd:string"
+        },
+        "bloombergId": {
+          "@id": "bloomberg:uniqueId",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "assetClass": {
+          "@id": "bloomberg:assetClass",
+          "@type": "xsd:string"
+        },
+        "exchange": {
+          "@id": "bloomberg:exchange",
+          "@type": "xsd:string"
+        },
+        "country": {
+          "@id": "schema:addressCountry",
+          "@type": "xsd:string"
+        },
+        "currency": {
+          "@id": "schema:currency",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "PricingData": {
+      "@id": "bloomberg:PricingData",
+      "@context": {
+        "lastPrice": {
+          "@id": "bloomberg:lastPrice",
+          "@type": "xsd:decimal"
+        },
+        "bid": {
+          "@id": "bloomberg:bid",
+          "@type": "xsd:decimal"
+        },
+        "ask": {
+          "@id": "bloomberg:ask",
+          "@type": "xsd:decimal"
+        },
+        "mid": {
+          "@id": "bloomberg:mid",
+          "@type": "xsd:decimal"
+        },
+        "open": {
+          "@id": "bloomberg:open",
+          "@type": "xsd:decimal"
+        },
+        "high": {
+          "@id": "bloomberg:high",
+          "@type": "xsd:decimal"
+        },
+        "low": {
+          "@id": "bloomberg:low",
+          "@type": "xsd:decimal"
+        },
+        "close": {
+          "@id": "bloomberg:close",
+          "@type": "xsd:decimal"
+        },
+        "previousClose": {
+          "@id": "bloomberg:previousClose",
+          "@type": "xsd:decimal"
+        },
+        "vwap": {
+          "@id": "bloomberg:vwap",
+          "@type": "xsd:decimal"
+        },
+        "change": {
+          "@id": "bloomberg:change",
+          "@type": "xsd:decimal"
+        },
+        "changePercent": {
+          "@id": "bloomberg:changePercent",
+          "@type": "xsd:decimal"
+        },
+        "bidSize": {
+          "@id": "bloomberg:bidSize",
+          "@type": "xsd:integer"
+        },
+        "askSize": {
+          "@id": "bloomberg:askSize",
+          "@type": "xsd:integer"
+        },
+        "lastTradeTime": {
+          "@id": "bloomberg:lastTradeTime",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "ReferenceData": {
+      "@id": "bloomberg:ReferenceData",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "shortName": {
+          "@id": "schema:alternateName",
+          "@type": "xsd:string"
+        },
+        "marketCap": {
+          "@id": "bloomberg:marketCap",
+          "@type": "xsd:decimal"
+        },
+        "sharesOutstanding": {
+          "@id": "bloomberg:sharesOutstanding",
+          "@type": "xsd:decimal"
+        },
+        "peRatio": {
+          "@id": "bloomberg:peRatio",
+          "@type": "xsd:decimal"
+        },
+        "dividendYield": {
+          "@id": "bloomberg:dividendYield",
+          "@type": "xsd:decimal"
+        },
+        "earningsPerShare": {
+          "@id": "bloomberg:earningsPerShare",
+          "@type": "xsd:decimal"
+        },
+        "sector": {
+          "@id": "bloomberg:sector",
+          "@type": "xsd:string"
+        },
+        "industryGroup": {
+          "@id": "bloomberg:industryGroup",
+          "@type": "xsd:string"
+        },
+        "beta": {
+          "@id": "bloomberg:beta",
+          "@type": "xsd:decimal"
+        },
+        "week52High": {
+          "@id": "bloomberg:week52High",
+          "@type": "xsd:decimal"
+        },
+        "week52Low": {
+          "@id": "bloomberg:week52Low",
+          "@type": "xsd:decimal"
+        },
+        "creditRating": {
+          "@id": "bloomberg:creditRating",
+          "@type": "xsd:string"
+        },
+        "couponRate": {
+          "@id": "bloomberg:couponRate",
+          "@type": "xsd:decimal"
+        },
+        "maturityDate": {
+          "@id": "bloomberg:maturityDate",
+          "@type": "xsd:date"
+        },
+        "yieldToMaturity": {
+          "@id": "bloomberg:yieldToMaturity",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "HistoricalDataPoint": {
+      "@id": "bloomberg:HistoricalDataPoint",
+      "@context": {
+        "date": {
+          "@id": "dcterms:date",
+          "@type": "xsd:date"
+        },
+        "open": {
+          "@id": "bloomberg:open",
+          "@type": "xsd:decimal"
+        },
+        "high": {
+          "@id": "bloomberg:high",
+          "@type": "xsd:decimal"
+        },
+        "low": {
+          "@id": "bloomberg:low",
+          "@type": "xsd:decimal"
+        },
+        "close": {
+          "@id": "bloomberg:close",
+          "@type": "xsd:decimal"
+        },
+        "volume": {
+          "@id": "bloomberg:volume",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "IntradayBar": {
+      "@id": "bloomberg:IntradayBar",
+      "@context": {
+        "time": {
+          "@id": "dcterms:date",
+          "@type": "xsd:dateTime"
+        },
+        "open": {
+          "@id": "bloomberg:open",
+          "@type": "xsd:decimal"
+        },
+        "high": {
+          "@id": "bloomberg:high",
+          "@type": "xsd:decimal"
+        },
+        "low": {
+          "@id": "bloomberg:low",
+          "@type": "xsd:decimal"
+        },
+        "close": {
+          "@id": "bloomberg:close",
+          "@type": "xsd:decimal"
+        },
+        "volume": {
+          "@id": "bloomberg:volume",
+          "@type": "xsd:integer"
+        },
+        "numEvents": {
+          "@id": "bloomberg:numEvents",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "MediaAttachment": {
+      "@id": "schema:MediaObject",
+      "@context": {
+        "type": {
+          "@id": "schema:encodingFormat",
+          "@type": "xsd:string"
+        },
+        "url": {
+          "@id": "schema:contentUrl",
+          "@type": "@id"
+        },
+        "caption": {
+          "@id": "schema:caption",
+          "@type": "xsd:string"
+        },
+        "credit": {
+          "@id": "schema:creditText",
+          "@type": "xsd:string"
+        },
+        "mimeType": {
+          "@id": "schema:encodingFormat",
+          "@type": "xsd:string"
+        }
+      }
+    }
+  }
+}

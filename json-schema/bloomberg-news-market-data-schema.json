@@ -1,0 +1,454 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bloomberg.com/schemas/bloomberg-news/market-data.json",
+  "title": "Bloomberg Market Data",
+  "description": "Schema for Bloomberg market data representing real-time and reference data for financial securities as delivered through the BLPAPI //blp/mktdata (subscription) and //blp/refdata (request/response) services. Covers equities, fixed income, commodities, currencies, and indices.",
+  "type": "object",
+  "required": [
+    "security",
+    "timestamp"
+  ],
+  "properties": {
+    "security": {
+      "$ref": "#/$defs/SecurityIdentifier"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the market data snapshot"
+    },
+    "pricing": {
+      "$ref": "#/$defs/PricingData"
+    },
+    "volume": {
+      "$ref": "#/$defs/VolumeData"
+    },
+    "referenceData": {
+      "$ref": "#/$defs/ReferenceData"
+    },
+    "historicalData": {
+      "type": "array",
+      "description": "Array of historical data points from the //blp/refdata HistoricalDataRequest service",
+      "items": {
+        "$ref": "#/$defs/HistoricalDataPoint"
+      }
+    },
+    "intradayBar": {
+      "type": "array",
+      "description": "Intraday bar data from the BLPAPI IntradayBarRequest service with OHLCV aggregation per interval",
+      "items": {
+        "$ref": "#/$defs/IntradayBar"
+      }
+    },
+    "fieldExceptions": {
+      "type": "array",
+      "description": "Field-level errors for unavailable or invalid requested fields as returned by the BLPAPI response",
+      "items": {
+        "$ref": "#/$defs/FieldException"
+      }
+    },
+    "securityError": {
+      "$ref": "#/$defs/SecurityError"
+    }
+  },
+  "$defs": {
+    "SecurityIdentifier": {
+      "type": "object",
+      "description": "Bloomberg security identification using the TICKER MARKET_SECTOR format and supplementary identifiers",
+      "required": ["ticker"],
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "Bloomberg ticker in TICKER MARKET_SECTOR format as used in BLPAPI security subscriptions",
+          "examples": ["AAPL US Equity", "USDJPY Curncy", "CL1 Comdty", "SPX Index", "T 4.5 05/15/38 Govt"]
+        },
+        "figi": {
+          "type": ["string", "null"],
+          "description": "Financial Instrument Global Identifier (FIGI) assigned by Bloomberg"
+        },
+        "isin": {
+          "type": ["string", "null"],
+          "description": "International Securities Identification Number",
+          "pattern": "^[A-Z]{2}[A-Z0-9]{9}[0-9]$"
+        },
+        "cusip": {
+          "type": ["string", "null"],
+          "description": "Committee on Uniform Securities Identification Procedures number",
+          "pattern": "^[A-Z0-9]{9}$"
+        },
+        "sedol": {
+          "type": ["string", "null"],
+          "description": "Stock Exchange Daily Official List identifier",
+          "pattern": "^[A-Z0-9]{7}$"
+        },
+        "bloombergId": {
+          "type": ["string", "null"],
+          "description": "Bloomberg unique security identifier (ID_BB_UNIQUE)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Security display name from the NAME reference data field"
+        },
+        "assetClass": {
+          "type": "string",
+          "description": "Bloomberg asset class or market sector",
+          "enum": [
+            "Equity",
+            "Fixed Income",
+            "Commodity",
+            "Currency",
+            "Index",
+            "Fund",
+            "Mortgage",
+            "Municipal",
+            "Preferred",
+            "Money Market",
+            "Government"
+          ]
+        },
+        "exchange": {
+          "type": ["string", "null"],
+          "description": "Primary exchange where the security trades (EXCH_CODE field)"
+        },
+        "country": {
+          "type": ["string", "null"],
+          "description": "Country of domicile ISO 3166-1 alpha-2 code (COUNTRY_ISO field)"
+        },
+        "currency": {
+          "type": ["string", "null"],
+          "description": "Trading currency ISO 4217 code (CRNCY field)",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    },
+    "PricingData": {
+      "type": "object",
+      "description": "Real-time and delayed pricing fields from the BLPAPI //blp/mktdata subscription service",
+      "properties": {
+        "lastPrice": {
+          "type": ["number", "null"],
+          "description": "Last traded price (PX_LAST / LAST_PRICE field)"
+        },
+        "bid": {
+          "type": ["number", "null"],
+          "description": "Current best bid price (BID field)"
+        },
+        "ask": {
+          "type": ["number", "null"],
+          "description": "Current best ask price (ASK field)"
+        },
+        "mid": {
+          "type": ["number", "null"],
+          "description": "Mid price calculated as (BID + ASK) / 2 (MID field)"
+        },
+        "open": {
+          "type": ["number", "null"],
+          "description": "Opening price for the current trading session (PX_OPEN / OPEN field)"
+        },
+        "high": {
+          "type": ["number", "null"],
+          "description": "Highest price for the current trading session (PX_HIGH / HIGH field)"
+        },
+        "low": {
+          "type": ["number", "null"],
+          "description": "Lowest price for the current trading session (PX_LOW / LOW field)"
+        },
+        "close": {
+          "type": ["number", "null"],
+          "description": "Previous close price (PX_LAST for prior session / PREV_CLOSE_VALUE_DT)"
+        },
+        "previousClose": {
+          "type": ["number", "null"],
+          "description": "Previous trading session close price (PREV_CLOSE_VALUE_DT field)"
+        },
+        "vwap": {
+          "type": ["number", "null"],
+          "description": "Volume-weighted average price (EQY_WEIGHTED_AVG_PX field)"
+        },
+        "change": {
+          "type": ["number", "null"],
+          "description": "Net change from previous close (CHG_NET_1D field)"
+        },
+        "changePercent": {
+          "type": ["number", "null"],
+          "description": "Percentage change from previous close (CHG_PCT_1D field)"
+        },
+        "bidSize": {
+          "type": ["integer", "null"],
+          "description": "Number of shares/contracts at the best bid (BID_SIZE field)",
+          "minimum": 0
+        },
+        "askSize": {
+          "type": ["integer", "null"],
+          "description": "Number of shares/contracts at the best ask (ASK_SIZE field)",
+          "minimum": 0
+        },
+        "lastTradeTime": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Timestamp of the last trade (TRADE_UPDATE_STAMP_RT field)"
+        }
+      }
+    },
+    "VolumeData": {
+      "type": "object",
+      "description": "Volume and turnover fields from the BLPAPI market data service",
+      "properties": {
+        "volume": {
+          "type": ["integer", "null"],
+          "description": "Total shares/contracts traded in the current session (VOLUME / PX_VOLUME field)",
+          "minimum": 0
+        },
+        "averageVolume30D": {
+          "type": ["number", "null"],
+          "description": "30-day average daily trading volume (VOLUME_AVG_30D field)",
+          "minimum": 0
+        },
+        "turnover": {
+          "type": ["number", "null"],
+          "description": "Total monetary value of shares traded (TURNOVER field)",
+          "minimum": 0
+        },
+        "numTrades": {
+          "type": ["integer", "null"],
+          "description": "Number of trades in the current session (NUM_TRADES field)",
+          "minimum": 0
+        }
+      }
+    },
+    "ReferenceData": {
+      "type": "object",
+      "description": "Static and calculated reference data fields from the BLPAPI //blp/refdata ReferenceDataRequest service",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full security name (NAME field)"
+        },
+        "shortName": {
+          "type": ["string", "null"],
+          "description": "Abbreviated security name (SHORT_NAME field)"
+        },
+        "marketCap": {
+          "type": ["number", "null"],
+          "description": "Market capitalization in local currency (CUR_MKT_CAP field)",
+          "minimum": 0
+        },
+        "sharesOutstanding": {
+          "type": ["number", "null"],
+          "description": "Total shares outstanding (EQY_SH_OUT field)",
+          "minimum": 0
+        },
+        "peRatio": {
+          "type": ["number", "null"],
+          "description": "Price-to-earnings ratio (PE_RATIO field)"
+        },
+        "dividendYield": {
+          "type": ["number", "null"],
+          "description": "Indicated dividend yield percentage (EQY_DVD_YLD_IND field)"
+        },
+        "earningsPerShare": {
+          "type": ["number", "null"],
+          "description": "Earnings per share (IS_EPS field)"
+        },
+        "bookValuePerShare": {
+          "type": ["number", "null"],
+          "description": "Book value per share (BOOK_VAL_PER_SH field)"
+        },
+        "priceToBookRatio": {
+          "type": ["number", "null"],
+          "description": "Price-to-book ratio (PX_TO_BOOK_RATIO field)"
+        },
+        "sector": {
+          "type": ["string", "null"],
+          "description": "Bloomberg Industry Classification System (BICS) sector (INDUSTRY_SECTOR field)"
+        },
+        "industryGroup": {
+          "type": ["string", "null"],
+          "description": "BICS industry group (INDUSTRY_GROUP field)"
+        },
+        "industrySubGroup": {
+          "type": ["string", "null"],
+          "description": "BICS industry sub-group (INDUSTRY_SUBGROUP field)"
+        },
+        "beta": {
+          "type": ["number", "null"],
+          "description": "Adjusted beta relative to the local market index (BETA_ADJ_OVERRIDABLE field)"
+        },
+        "week52High": {
+          "type": ["number", "null"],
+          "description": "52-week high price (HIGH_52WEEK field)"
+        },
+        "week52Low": {
+          "type": ["number", "null"],
+          "description": "52-week low price (LOW_52WEEK field)"
+        },
+        "movingAverage200D": {
+          "type": ["number", "null"],
+          "description": "200-day simple moving average (MOV_AVG_200D field)"
+        },
+        "movingAverage50D": {
+          "type": ["number", "null"],
+          "description": "50-day simple moving average (MOV_AVG_50D field)"
+        },
+        "dayCountConvention": {
+          "type": ["string", "null"],
+          "description": "Day count convention for fixed income securities (DAY_CNT_DES field)"
+        },
+        "couponRate": {
+          "type": ["number", "null"],
+          "description": "Coupon rate for fixed income securities (CPN field)"
+        },
+        "maturityDate": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "Maturity date for fixed income securities (MATURITY field)"
+        },
+        "yieldToMaturity": {
+          "type": ["number", "null"],
+          "description": "Yield to maturity for fixed income securities (YLD_YTM_MID field)"
+        },
+        "creditRating": {
+          "type": ["string", "null"],
+          "description": "Composite credit rating (RTG_COMPOSITE field)"
+        }
+      }
+    },
+    "HistoricalDataPoint": {
+      "type": "object",
+      "description": "A single historical data point from the BLPAPI HistoricalDataRequest service",
+      "required": ["date"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of the historical data point"
+        },
+        "open": {
+          "type": ["number", "null"],
+          "description": "Opening price (PX_OPEN field)"
+        },
+        "high": {
+          "type": ["number", "null"],
+          "description": "Highest price (PX_HIGH field)"
+        },
+        "low": {
+          "type": ["number", "null"],
+          "description": "Lowest price (PX_LOW field)"
+        },
+        "close": {
+          "type": ["number", "null"],
+          "description": "Closing price (PX_LAST field)"
+        },
+        "volume": {
+          "type": ["integer", "null"],
+          "description": "Total volume (PX_VOLUME field)",
+          "minimum": 0
+        },
+        "value": {
+          "type": ["number", "null"],
+          "description": "Generic field value when requesting a single non-OHLCV field"
+        }
+      }
+    },
+    "IntradayBar": {
+      "type": "object",
+      "description": "Aggregated intraday OHLCV bar from the BLPAPI IntradayBarRequest service",
+      "required": ["time"],
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start time of the intraday bar interval"
+        },
+        "open": {
+          "type": "number",
+          "description": "Opening price of the interval"
+        },
+        "high": {
+          "type": "number",
+          "description": "Highest price during the interval"
+        },
+        "low": {
+          "type": "number",
+          "description": "Lowest price during the interval"
+        },
+        "close": {
+          "type": "number",
+          "description": "Closing price of the interval"
+        },
+        "volume": {
+          "type": "integer",
+          "description": "Total volume during the interval",
+          "minimum": 0
+        },
+        "numEvents": {
+          "type": "integer",
+          "description": "Number of trade events during the interval",
+          "minimum": 0
+        }
+      }
+    },
+    "FieldException": {
+      "type": "object",
+      "description": "Error information for a field that could not be returned, as provided in BLPAPI fieldExceptions",
+      "properties": {
+        "fieldId": {
+          "type": "string",
+          "description": "The requested field identifier that caused the exception"
+        },
+        "errorInfo": {
+          "type": "object",
+          "description": "Nested error details",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "Source of the error"
+            },
+            "code": {
+              "type": "integer",
+              "description": "Numeric error code"
+            },
+            "category": {
+              "type": "string",
+              "description": "Error category classification"
+            },
+            "message": {
+              "type": "string",
+              "description": "Human-readable error message"
+            },
+            "subCategory": {
+              "type": ["string", "null"],
+              "description": "Error sub-category for more specific classification"
+            }
+          }
+        }
+      }
+    },
+    "SecurityError": {
+      "type": "object",
+      "description": "Error returned when the requested security identifier is invalid or not found in the BLPAPI service",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Source of the error"
+        },
+        "code": {
+          "type": "integer",
+          "description": "Numeric error code"
+        },
+        "category": {
+          "type": "string",
+          "description": "Error category classification"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message describing the security error"
+        },
+        "subCategory": {
+          "type": ["string", "null"],
+          "description": "Error sub-category for more specific classification"
+        }
+      }
+    }
+  }
+}

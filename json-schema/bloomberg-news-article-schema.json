@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bloomberg.com/schemas/bloomberg-news/article.json",
+  "title": "Bloomberg News Article",
+  "description": "Schema for a Bloomberg news article delivered through the Bloomberg News API or BLPAPI //blp/mktdata and //blp/refdata news services, representing breaking news, analysis, and multimedia content covering global markets and business.",
+  "type": "object",
+  "required": [
+    "storyId",
+    "headline",
+    "publishedAt"
+  ],
+  "properties": {
+    "storyId": {
+      "type": "string",
+      "description": "Unique Bloomberg identifier for the news story"
+    },
+    "headline": {
+      "type": "string",
+      "description": "Primary headline of the news article",
+      "maxLength": 500
+    },
+    "subHeadline": {
+      "type": ["string", "null"],
+      "description": "Secondary headline or deck providing additional context"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief summary or abstract of the article content"
+    },
+    "body": {
+      "type": "string",
+      "description": "Full text body of the news article"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the article was first published"
+    },
+    "updatedAt": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the article was last updated"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL of the article on Bloomberg.com"
+    },
+    "authors": {
+      "type": "array",
+      "description": "List of authors who contributed to the article",
+      "items": {
+        "$ref": "#/$defs/Author"
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "Originating news source or wire service",
+      "examples": [
+        "Bloomberg News",
+        "Bloomberg Opinion",
+        "Bloomberg Markets",
+        "Bloomberg Businessweek"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "description": "ISO 639-1 language code of the article",
+      "pattern": "^[a-z]{2}$",
+      "examples": ["en", "ja", "zh", "de", "fr"]
+    },
+    "wordCount": {
+      "type": "integer",
+      "description": "Total word count of the article body",
+      "minimum": 0
+    },
+    "articleType": {
+      "type": "string",
+      "description": "Classification of the article type",
+      "enum": [
+        "News",
+        "Analysis",
+        "Opinion",
+        "Feature",
+        "Breaking",
+        "Exclusive",
+        "Flash",
+        "Commentary",
+        "Research",
+        "Interview",
+        "Press Release"
+      ]
+    },
+    "urgency": {
+      "type": "string",
+      "description": "News urgency classification reflecting the BLPAPI NEWS_STORY_URGENCY field",
+      "enum": [
+        "Flash",
+        "Bulletin",
+        "Urgent",
+        "Normal",
+        "Background"
+      ]
+    },
+    "topics": {
+      "type": "array",
+      "description": "Bloomberg topic codes and categories associated with the article",
+      "items": {
+        "$ref": "#/$defs/Topic"
+      }
+    },
+    "securities": {
+      "type": "array",
+      "description": "Securities mentioned in or related to the article, referenced by Bloomberg identifiers",
+      "items": {
+        "$ref": "#/$defs/SecurityReference"
+      }
+    },
+    "regions": {
+      "type": "array",
+      "description": "Geographic regions relevant to the article",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        ["US", "EMEA", "APAC", "LATAM"]
+      ]
+    },
+    "sectors": {
+      "type": "array",
+      "description": "Industry sectors relevant to the article content",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        ["Technology", "Finance", "Energy", "Healthcare"]
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Free-form tags or keywords associated with the article",
+      "items": {
+        "type": "string"
+      }
+    },
+    "media": {
+      "type": "array",
+      "description": "Associated multimedia content such as images, videos, or charts",
+      "items": {
+        "$ref": "#/$defs/MediaAttachment"
+      }
+    },
+    "relatedStories": {
+      "type": "array",
+      "description": "References to related Bloomberg news stories",
+      "items": {
+        "type": "object",
+        "properties": {
+          "storyId": {
+            "type": "string",
+            "description": "Bloomberg story identifier of the related article"
+          },
+          "headline": {
+            "type": "string",
+            "description": "Headline of the related article"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the related article"
+          }
+        }
+      }
+    },
+    "copyright": {
+      "type": "string",
+      "description": "Copyright notice for the article content",
+      "examples": ["Copyright 2026 Bloomberg L.P."]
+    }
+  },
+  "$defs": {
+    "Author": {
+      "type": "object",
+      "description": "A Bloomberg news article author or contributor",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the author"
+        },
+        "email": {
+          "type": ["string", "null"],
+          "format": "email",
+          "description": "Author's email address"
+        },
+        "bio": {
+          "type": ["string", "null"],
+          "description": "Short biographical description of the author"
+        },
+        "url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "URL to the author's Bloomberg profile"
+        }
+      }
+    },
+    "Topic": {
+      "type": "object",
+      "description": "Bloomberg topic classification for news categorization",
+      "required": ["code"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Bloomberg topic code",
+          "examples": ["MARKETS", "ECO", "POL", "TECH", "CORP", "CMDTY", "FX", "FI"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable topic name",
+          "examples": ["Markets", "Economics", "Politics", "Technology", "Corporate News", "Commodities", "Foreign Exchange", "Fixed Income"]
+        }
+      }
+    },
+    "SecurityReference": {
+      "type": "object",
+      "description": "A reference to a financial security mentioned in the article, using Bloomberg security identification conventions",
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "Bloomberg ticker symbol in TICKER MARKET_SECTOR format",
+          "examples": ["AAPL US Equity", "IBM US Equity", "VOD LN Equity"]
+        },
+        "figi": {
+          "type": ["string", "null"],
+          "description": "Financial Instrument Global Identifier (FIGI)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Security display name"
+        },
+        "assetClass": {
+          "type": "string",
+          "description": "Bloomberg asset class classification",
+          "enum": [
+            "Equity",
+            "Fixed Income",
+            "Commodity",
+            "Currency",
+            "Index",
+            "Fund",
+            "Mortgage",
+            "Municipal",
+            "Preferred",
+            "Money Market"
+          ]
+        }
+      }
+    },
+    "MediaAttachment": {
+      "type": "object",
+      "description": "Multimedia content associated with the article",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of media content",
+          "enum": ["Image", "Video", "Chart", "Infographic", "Audio"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the media asset"
+        },
+        "caption": {
+          "type": ["string", "null"],
+          "description": "Caption or description for the media asset"
+        },
+        "credit": {
+          "type": ["string", "null"],
+          "description": "Attribution credit for the media asset"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "MIME type of the media content",
+          "examples": ["image/jpeg", "video/mp4", "image/png"]
+        }
+      }
+    }
+  }
+}
