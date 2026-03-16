@@ -1,10 +1,13 @@
+aid: bloomberg-news
 name: Bloomberg News
 description: Bloomberg News is a leading global provider of financial news, data, and analysis, delivering breaking news and insights on markets, economics, politics, and business.
-image: https://www.bloomberg.com/logos/bloomberg-logo.png
-url: https://www.bloomberg.com
-created: '2024'
-modified: '2026-03-03'
-specificationVersion: '0.16'
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/bloomberg-news/refs/heads/main/apis.yml
+created: '2024-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
 - name: Bloomberg Market Data API
   description: Provides access to real-time and historical market data including stocks, bonds, commodities, and currencies
