@@ -1,8 +1,6 @@
 aid: bloomberg-news
 name: Bloomberg News
-description: Bloomberg News is a leading global provider of financial news, 
-  data, and analysis, delivering breaking news and insights on markets, 
-  economics, politics, and business.
+description: Bloomberg News is a leading global provider of financial news, data, and analysis, delivering breaking news and insights on markets, economics, politics, and business.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: >-
@@ -20,17 +18,16 @@ apis:
     baseUrl: https://api.bloomberg.com/v1
     tags:
       - Financial Data
-      - Market Data
-      - Real-time
       - Historical Data
+      - Market Data
+      - Real-Time
     properties:
       - type: Documentation
         url: https://www.bloomberg.com/professional/support/api-library/
       - type: OpenAPI
         url: https://api.bloomberg.com/openapi.json
       - type: Authentication
-        url: 
-          https://www.bloomberg.com/professional/support/api-library/#authentication
+        url: https://www.bloomberg.com/professional/support/api-library/#authentication
       - type: GettingStarted
         url: https://bloomberg.github.io/blpapi-docs/
       - type: SDKs
@@ -45,10 +42,10 @@ apis:
     humanUrl: https://www.bloomberg.com/professional/support/news-api/
     baseUrl: https://api.bloomberg.com/news/v1
     tags:
-      - News
       - Articles
       - Business News
       - Financial News
+      - News
     properties:
       - type: Documentation
         url: https://www.bloomberg.com/professional/support/news-api/
@@ -57,21 +54,16 @@ apis:
       - type: GettingStarted
         url: https://developer.bloomberg.com/
   - name: Bloomberg Server API (SAPI)
-    description: Lightweight server-side API that delivers real-time market, 
-      historical, and key reference data as well as calculation engine 
-      capabilities for proprietary and third-party applications. Available in C,
-      C++, .NET, Python, and Java.
-    humanUrl: 
-      https://www.bloomberg.com/professional/products/data/data-connectivity/server-api/
+    description: Lightweight server-side API that delivers real-time market, historical, and key reference data as well as calculation engine capabilities for proprietary and third-party applications. Available in C, C++, .NET, Python, and Java.
+    humanUrl: https://www.bloomberg.com/professional/products/data/data-connectivity/server-api/
     tags:
-      - Server API
-      - Real-time Data
-      - Reference Data
       - Enterprise
+      - Real-Time Data
+      - Reference Data
+      - Server API
     properties:
       - type: Documentation
-        url: 
-          https://www.bloomberg.com/professional/products/data/data-connectivity/server-api/
+        url: https://www.bloomberg.com/professional/products/data/data-connectivity/server-api/
       - type: APIReference
         url: https://bloomberg.github.io/blpapi-docs/
       - type: GettingStarted
@@ -79,45 +71,37 @@ apis:
       - type: SDKs
         url: https://bloomberg.github.io/blpapi-docs/
   - name: Bloomberg Data License API
-    description: Provides programmatic access to Data License content via REST 
-      API, SFTP, or cloud providers, with available content including reference,
-      pricing, regulatory, and alternative data for over 50 million securities 
-      and 30 thousand fields.
-    humanUrl: 
-      https://www.bloomberg.com/professional/products/data/data-management/data-license/
+    description: Provides programmatic access to Data License content via REST API, SFTP, or cloud providers, with available content including reference, pricing, regulatory, and alternative data for over 50 million securities and 30 thousand fields.
+    humanUrl: https://www.bloomberg.com/professional/products/data/data-management/data-license/
     tags:
-      - Data License
-      - Reference Data
-      - Pricing Data
-      - Regulatory Data
       - Alternative Data
+      - Data License
       - Enterprise Data
+      - Pricing Data
+      - Reference Data
+      - Regulatory Data
     properties:
       - type: Documentation
-        url: 
-          https://www.bloomberg.com/professional/products/data/data-management/data-license/
+        url: https://www.bloomberg.com/professional/products/data/data-management/data-license/
       - type: APIReference
         url: https://developer.bloomberg.com/
       - type: GettingStarted
         url: https://developer.bloomberg.com/
   - name: Bloomberg BLPAPI
-    description: Core Bloomberg API providing a unified programming interface 
-      for Desktop API, Server API, B-PIPE, and Platform products. Available as 
-      SDKs for C++, C# (.NET), Java, and Python.
+    description: Core Bloomberg API providing a unified programming interface for Desktop API, Server API, B-PIPE, and Platform products. Available as SDKs for C++, C# (.NET), Java, and Python.
     humanUrl: https://bloomberg.github.io/blpapi-docs/
     tags:
       - Core API
-      - SDK
       - Desktop API
       - Integration
+      - SDK
     properties:
       - type: Documentation
         url: https://bloomberg.github.io/blpapi-docs/
       - type: APIReference
         url: https://bloomberg.github.io/blpapi-docs/
       - type: GettingStarted
-        url: 
-          https://data.bloomberglp.com/professional/sites/10/2017/03/BLPAPI-Core-Developer-Guide.pdf
+        url: https://data.bloomberglp.com/professional/sites/10/2017/03/BLPAPI-Core-Developer-Guide.pdf
       - type: SDKs
         url: https://bloomberg.github.io/blpapi-docs/
       - type: GitHubOrg
@@ -127,11 +111,11 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 tags:
-  - Financial Services
-  - News
-  - Market Data
-  - Business Intelligence
   - Analytics
+  - Business Intelligence
+  - Financial Services
+  - Market Data
+  - News
 common:
   - type: Portal
     url: https://developer.bloomberg.com/
