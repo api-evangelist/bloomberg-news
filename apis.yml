@@ -123,6 +123,8 @@ apis:
       - type: GitHubOrganization
         url: https://github.com/bloomberg
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bloomberg-news
   - type: Portal
     url: https://developer.bloomberg.com/
   - type: Documentation
