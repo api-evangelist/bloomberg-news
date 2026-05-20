@@ -5,9 +5,10 @@
       "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/",
       "feed_url": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/feed/",
       "title": "Tech At Bloomberg Archives | Bloomberg L.P.",
-      "saved": 10
+      "saved": 0,
+      "last_error": "http_403"
     }
   ],
-  "fetched": "2026-05-09T20:17:51Z",
+  "fetched": "2026-05-17T20:20:35Z",
   "post_count": 10
 }
