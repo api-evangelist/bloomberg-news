@@ -2,13 +2,14 @@
   "repo": "bloomberg-news",
   "feeds": [
     {
-      "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/",
-      "feed_url": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/feed/",
-      "title": "Tech At Bloomberg Archives | Bloomberg L.P.",
-      "saved": 0,
-      "last_error": "http_403"
+      "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/feed/",
+      "error": "HTTPError"
+    },
+    {
+      "source": "https://www.bloomberg.com/professional/support/",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-05-17T20:20:35Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 10
 }
