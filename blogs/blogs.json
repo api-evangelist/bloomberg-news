@@ -2,7 +2,7 @@
   "repo": "bloomberg-news",
   "feeds": [
     {
-      "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/feed/",
+      "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/",
       "error": "HTTPError"
     },
     {
@@ -10,6 +10,6 @@
       "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-01T23:35:02Z",
+  "fetched": "2026-06-14T20:42:17Z",
   "post_count": 10
 }
