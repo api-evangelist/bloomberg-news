@@ -6,7 +6,7 @@ description: >-
   Bloomberg provides APIs through the Bloomberg Professional Services platform
   including BLPAPI, Server API, Data License, and market data services.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: >-
   https://raw.githubusercontent.com/api-evangelist/bloomberg-news/refs/heads/main/apis.yml
 created: '2024-01-01'
