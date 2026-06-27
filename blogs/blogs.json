@@ -3,13 +3,10 @@
   "feeds": [
     {
       "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://www.bloomberg.com/professional/support/",
-      "error": "HTTPError"
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
-  "post_count": 10
+  "post_count": 10,
+  "fetched": "2026-06-27T12:28:02Z"
 }
