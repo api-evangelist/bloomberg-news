@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: developer.bloomberg.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar 13 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: www.bloomberg.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb 14 23:59:59 2027 GMT
+  hsts: null
+- host: api.bloomberg.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar 21 23:59:59 2027 GMT
+  hsts: null
+domains:
+- domain: bloomberg.com
+  dnssec: false
+  caa:
+  - 0 iodef "mailto:reportvuln@bloomberg.net"
+  - 0 issue "amazon.com"
+  - 0 issue "digicert.com"
+  - 0 issuewild "digicert.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

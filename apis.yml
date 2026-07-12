@@ -123,6 +123,8 @@ apis:
       - type: GitHubOrganization
         url: https://github.com/bloomberg
 common:
+  - type: DomainSecurity
+    url: security/bloomberg-news-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/bloomberg-news
   - type: Portal
