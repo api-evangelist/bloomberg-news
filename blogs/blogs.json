@@ -2,11 +2,10 @@
   "repo": "bloomberg-news",
   "feeds": [
     {
-      "source": "https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/",
-      "saved": 0,
-      "error": "HTTP 403 Forbidden"
+      "source": "https://www.bloomberg.com/professional/support/",
+      "error": "HTTPError"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-06-27T12:28:02Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
