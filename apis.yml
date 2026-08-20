@@ -27,6 +27,12 @@ specificationVersion: '0.23'
 tags:
   - Analytics
   - Business Intelligence
+  - Financial-Services
+  - Market Data
+  - News
+tags_raw:
+  - Analytics
+  - Business Intelligence
   - Financial Services
   - Market Data
   - News
