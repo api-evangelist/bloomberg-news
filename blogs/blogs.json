@@ -3,9 +3,12 @@
   "feeds": [
     {
       "source": "https://www.bloomberg.com/professional/support/",
-      "error": "HTTPError"
+      "feed_url": "https://www.bloomberg.com/professional/support/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-08-15T12:22:01Z"
+  "fetched": "2026-08-22T20:20:02Z"
 }
