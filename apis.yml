@@ -4,6 +4,17 @@ description: Bloomberg News is a leading global provider of financial news, data
   news and insights on markets, economics, politics, and business. Bloomberg provides APIs through the Bloomberg
   Professional Services platform including BLPAPI, Server API, Data License, and market data services.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
