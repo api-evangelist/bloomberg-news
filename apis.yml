@@ -33,6 +33,9 @@ url: https://raw.githubusercontent.com/api-evangelist/bloomberg-news/refs/heads/
 created: '2024-01-01'
 modified: '2026-09-16'
 specificationVersion: '0.23'
+x-docs-platform: redoc
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-20
 tags:
 - Analytics
 - Business Intelligence
