@@ -1,0 +1,51 @@
+# Front Door AI Index — bloomberg-news — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: bloomberg-news
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: bloomberg.com
+  final_host: www.bloomberg.com
+  ownership: shared
+  owner: bloomberg
+  shares_host_with:
+  - bloomberg
+  - bloomberg-aim
+  - bloomberg-apis
+  - bloomberg-applications
+  - bloomberg-buyside-enterprise-solutions
+  - bloomberg-data
+  - bloomberg-data-sets
+  - bloomberg-data-workflows
+  - bloomberg-emsx
+  - bloomberg-enterprise
+  - bloomberg-esg-products
+  - bloomberg-excel-plug-ins
+  - bloomberg-financial-solutions
+  - bloomberg-index-solutions-limited-bisl
+  - bloomberg-indices
+  - bloomberg-instant-messaging
+  - bloomberg-intelligence
+  - bloomberg-media-platforms
+  - bloomberg-message
+  - bloomberg-platform
+  - bloomberg-product-suite
+  - bloomberg-products-and-platforms
+  - bloomberg-professional-service
+  - bloomberg-query-language-bql
+  - bloomberg-sustainable-finance-products
+  - bloomberg-television-and-radio
+  - bloomberg-terminal
+  - bloomberg-tradebook
+  - bloomberg-tv
+  - bloomberg-valuation-service-bval
+  inherited_from: null
+  verdict: unmeasured
+  score: null
+  host_score: null
+  density: null
+  words: null
+  tiers: null
+  ambiguous: null
+  top_terms: null
