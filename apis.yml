@@ -39,7 +39,7 @@ x-docs-platform-checked: 2026-09-20
 tags:
 - Analytics
 - Business Intelligence
-- Financial-Services
+- Financial Services
 - Market Data
 - News
 tags_raw:
@@ -48,6 +48,7 @@ tags_raw:
 - Financial Services
 - Market Data
 - News
+- Financial-Services
 apis:
 - aid: bloomberg-news:market-data-api
   name: Bloomberg Market Data API
