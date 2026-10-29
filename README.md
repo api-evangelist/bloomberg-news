@@ -1,4 +1,4 @@
-# Bloomberg News (bloomberg-news)
+# Bloomberg News
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,68 +66,128 @@
 
 Bloomberg News is a leading global provider of financial news, data, and analysis, delivering breaking news and insights on markets, economics, politics, and business. Bloomberg provides APIs through the Bloomberg Professional Services platform including BLPAPI, Server API, Data License, and market data services.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/bloomberg-news/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bloomberg-news/refs/heads/main/apis.yml)
+**Areas:** Analytics · Business Intelligence · Financial Services · Market Data · News
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Bloomberg News on APIs.io
 
-## Tags:
+Everything profiled for Bloomberg News is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bloomberg-news/](https://apis.io/providers/bloomberg-news/)** — or go straight to one of the APIs or properties below.
 
- - Analytics, Business Intelligence, Financial Services, Market Data, News
+### APIs (5)
 
-## Timestamps
+- [Bloomberg Market Data API](https://apis.io/apis/bloomberg-news/market-data-api/) — Provides access to real-time and historical market data including stocks, bonds, commodities, and currencies through the Bloomberg Terminal and enterprise…
+- [Bloomberg News API](https://apis.io/apis/bloomberg-news/news-api/) — Access to Bloomberg's breaking news, articles, and multimedia content covering global markets and business through the Bloomberg Professional platform.
+- [Bloomberg Server API (SAPI)](https://apis.io/apis/bloomberg-news/server-api/) — Lightweight server-side API that delivers real-time market, historical, and key reference data as well as calculation engine capabilities for proprietary…
+- [Bloomberg Data License API](https://apis.io/apis/bloomberg-news/data-license-api/) — Provides programmatic access to Data License content via REST API, SFTP, or cloud providers, with available content including reference, pricing,…
+- [Bloomberg BLPAPI](https://apis.io/apis/bloomberg-news/blpapi/) — Core Bloomberg API providing a unified programming interface for Desktop API, Server API, B-PIPE, and Platform products. Available as SDKs for C++, C#…
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Bloomberg Market Data API
-Provides access to real-time and historical market data including stocks, bonds, commodities, and currencies.
+#### JSON Schema (2)
 
-### Bloomberg News API
-Access to Bloomberg's breaking news, articles, and multimedia content covering global markets and business.
+The data models the API reads and writes.
 
-### Bloomberg Server API (SAPI)
-Lightweight server-side API that delivers real-time market, historical, and key reference data.
+- [Bloomberg News Article](https://apis.io/schemas/bloomberg-news/bloomberg-news-article/)
+- [Bloomberg Market Data](https://apis.io/schemas/bloomberg-news/bloomberg-news-market-data/)
 
-### Bloomberg Data License API
-Provides programmatic access to Data License content via REST API, SFTP, or cloud providers.
+#### JSON-LD (1)
 
-### Bloomberg BLPAPI
-Core Bloomberg API providing a unified programming interface for Desktop API, Server API, B-PIPE, and Platform products.
+Linked-data contexts for the provider's vocabulary.
 
-## Features
+- [Bloomberg News Context](https://apis.io/jsonld/bloomberg-news/bloomberg-news-context/)
 
-| Name | Description |
-|------|-------------|
-| Real-Time Market Data | Access streaming real-time market data for equities, fixed income, commodities, and currencies. |
-| Historical Data Services | Query historical pricing, volume, and fundamental data for backtesting and analysis. |
-| Reference Data | Access comprehensive reference data for securities identification, corporate actions, and classifications. |
-| News and Research | Programmatic access to Bloomberg breaking news, articles, and research content. |
-| Enterprise Data Distribution | Server-side APIs for distributing Bloomberg data to internal applications and trading systems. |
-| Multi-Language SDK Support | SDKs available in Python, Java, C++, C#, and C for cross-platform integration. |
+#### Governance rules (1)
 
-## Use Cases
+Spectral rulesets for the provider's contracts.
 
-| Name | Description |
-|------|-------------|
-| Quantitative Trading | Build algorithmic trading strategies using real-time and historical market data feeds. |
-| Risk Management | Calculate portfolio risk metrics using Bloomberg's pricing and analytics data. |
-| Financial Research | Automate financial research workflows with news, fundamental data, and analytics. |
-| Regulatory Reporting | Generate regulatory compliance reports using reference data and pricing services. |
-| Portfolio Management | Integrate Bloomberg data into portfolio management systems for real-time monitoring. |
+- [Bloomberg News — jsonschema rules](https://apis.io/rules/bloomberg-news/bloomberg-news-jsonschema-spectral-rules/)
 
-## Integrations
+#### Security (1)
 
-| Name | Description |
-|------|-------------|
-| Excel | Bloomberg Excel Add-In for spreadsheet-based data analysis and modeling. |
-| Python | Python SDK (blpapi) for data science and quantitative finance applications. |
-| MATLAB | Bloomberg Datafeed Toolbox for MATLAB for financial modeling and analysis. |
-| R | Rblpapi package for accessing Bloomberg data in R statistical computing. |
-| Trading Platforms | Integration with order management and execution management systems. |
+Authentication, trust centre, and vulnerability disclosure.
 
-## Maintainers
+- [Bloomberg News Domain Security](https://apis.io/security/bloomberg-news/bloomberg-news-domain-security/)
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bloomberg News Plans Pricing](https://apis.io/plans/bloomberg-news/bloomberg-news-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bloomberg News Rate Limits](https://apis.io/rate-limits/bloomberg-news/bloomberg-news-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bloomberg News Finops](https://apis.io/finops/bloomberg-news/bloomberg-news-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://bloomberg.com)
+- [Documentation](https://bloomberg.github.io/blpapi-docs/)
+- [Support](https://www.bloomberg.com/professional/support/)
+- [Blog](https://www.bloomberg.com/company/stories/category/tech-at-bloomberg/)
+- [Terms of service](https://www.bloomberg.com/notices/tos/)
+- [Privacy policy](https://www.bloomberg.com/notices/)
+- [GitHub](https://github.com/bloomberg)
+
+## API Evangelist rating
+
+**Kin Score 33.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 10.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 46.1 |
+
+**Agent readiness 3.1** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 28.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bloomberg-news/](https://apis.io/providers/bloomberg-news/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bloomberg News: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bloomberg-news/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
